@@ -46,12 +46,13 @@
 }
 
 .submit{
-    background: #5A98D0;
-    box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
+    background: linear-gradient(to right, rgb(76,116,230), rgb(140,85,233));
     border-radius: 10px;
-    font-weight: 500;
+    border: none;
+    font-weight: 700;
     font-size: 16px;
     line-height: 26px;
+    padding: 10px 91px;
     text-align: center;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -59,4 +60,23 @@
 
 form{
     background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1612806120_38-p-abstraktnii-fon-svetlii-goluboi-dlya-preze-53.jpg);
+}
+
+nav{
+    display: flex;
+    background: linear-gradient(rgb(242,246,247),rgb(57,127,128));
+}
+
+nav li{    
+    display: inline;
+    padding: 10px;
+    border-radius: 20px;
+    border-right: 3px solid white;
+    box-shadow: 2px 0px 0px 0px black;
+}
+
+nav li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
 }
