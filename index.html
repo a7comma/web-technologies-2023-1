@@ -8,6 +8,27 @@
 </head>
 <body>
     <header class ="header">
+        <div class ="mobileMenu">
+            <img src ="src/assets/img/menu.svg" alt ="menu">
+        </div>
+        <div class="mobileMenuOpen">
+            <div class ="mobileMenuClose">
+                <img src ="src/assets/img/close.svg" alt ="close">
+            </div>
+            <p class ="mobileMenulogo">IT WEBSITE</p>
+            <nav class ="mobileMenuMenu">
+                <li>Services</li>
+                <li>Media</li>
+                <li>Cases</li>
+                <li>FAQ</li>
+                <li>Contacts</li>
+            </nav> 
+            <div class ="mobileMenuContacts">
+                <li><img src ="src/assets/img/phone.png" alt ="phone">+7 (111) 111 11 11</li>
+                <li><img src ="src/assets/img/phone.png" alt ="phone">+7 (111) 111 11 11</li>
+                <li><img src ="src/assets/img/email.png" alt ="email">itcompany@mail.com</li>
+            </div>
+        </div>
         <p class ="logo">IT WEBSITE</p>
         <nav class ="menu">
             <li>Services</li>
@@ -38,7 +59,7 @@
             </div>
             <div class ="userContacts">
                 <h4 class ="userContTitle">Leave your contacts and we will call you back
-                    <br/>within 30 minutes</h4>
+                    within 30 minutes</h4>
                 <form class ="userContForm">
                     <label>Phone number<input class ="userFormPhone" type ="text" value ="+7 (111) 111-11-11"></input></label>
                     <label>Full name<input type ="text" value ="Иван Иванов"></input></label>
@@ -47,11 +68,12 @@
                 </form>
             </div>
         </div>
-        <hr>
         <div class ="development">
             <div class ="technologies">
-                <h3 class ="techTitle">Full development cycle</h3>
-                <p class ="techText">We use proven technologies</p>
+                <div class ="techTitleText">
+                    <h3 class ="techTitle">Full development cycle</h3>
+                    <p class ="techText">We use proven technologies</p>
+                </div>
                 <div class ="webTech">
                     <h4>Web</h4>
                     <p>PHP / Javascript / Node.JS / Web Socket / Socket.io / Vue.js/ Nuxt / MySQL / Laravel / GO lang / django / Python</p>

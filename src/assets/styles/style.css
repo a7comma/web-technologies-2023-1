@@ -2,11 +2,16 @@
 @import "./fonts.css";
 @import "./utils.css";
 
+body{
+    margin: 0;
+    max-width: 1440px;
+}
+
 .header{
     position: fixed;
     top: 24px;
-    left: 108px;
-    width: 1124px;
+    left: min(100vw - 1124px, 108px);
+    max-width: 1124px; 
     
     display: inline-flex;
     padding: 16px 24px;
@@ -86,8 +91,7 @@
 
 .introduction{
     background-color: #F2F4F7;
-    width: 1440px; 
-    height: 900px;
+    width: 100vw;
     flex-shrink: 0;
 }
 
@@ -199,6 +203,7 @@
     line-height: 22px; 
     letter-spacing: -0.408px;
 
+    width: 224px;
     border: none;
     border-bottom: 1px solid #D0D5DD;
 }
@@ -232,9 +237,8 @@ footer{
     border-radius: 12px;
     background: #101828;
     box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.08), 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
-    
-    width: 1224px;
-    margin: 108px 0px 48px 54px;
+   
+    margin: 54px 108px 48px 108px;
 }
 
 .footerTitle{
@@ -284,10 +288,12 @@ footer{
     font-weight: 400;
     line-height: 16px; 
     letter-spacing: -0.078px;
+
+    margin: 0;
 }
 
 .footerContacts p{
-    width: 294px;
+    width: calc((100vw - 264px)/4);
     color: #FFF;
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: SFPro;
@@ -326,3 +332,453 @@ footer{
     margin: 0;
 }
 
+
+.mobileMenu:active + .mobileMenuOpen{
+    display: flex;
+}
+
+.mobileMenu{
+    width: 59px;
+    height: 40px;
+    display: none;
+}
+
+.mobileMenu img{
+    width: 100%;
+    height: 100%;
+}
+
+.mobileMenuOpen{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobileMenuClose{
+    width: 36px;
+    height: 36px;
+    padding: 12px;
+    align-items: flex-start;
+    gap: 10px;
+
+    position: absolute;
+    top: 41px;
+    right: 81px;
+}
+
+.mobileMenulogo{
+    width: 289px;
+    color: #2D66EE;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; 
+    letter-spacing: -0.154px;
+
+    margin-top: 143px;
+    margin-bottom: 0;
+}
+
+.mobileMenuMenu{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 32px;
+    margin-top: 52px;
+    align-items: center;
+}
+
+.mobileMenuMenu li{
+    color: var(--Gray-900, #101828);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 144%; 
+    letter-spacing: 0.326px;
+}
+
+.mobileMenuContacts{
+    margin-top: 52px;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 32px;
+
+    color: var(--accent, #2D66EE);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: SF Pro Text;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; 
+    letter-spacing: -0.154px;
+}
+
+.mobileMenuContacts li{
+    display: flex;
+    align-items: center;
+}
+
+.mobileMenuContacts img{
+    width: 28px;
+    height: 28px;
+}
+
+.development{
+    background-color: white;
+    display: inline-flex;
+}
+
+.technologies{
+    margin-top: 80px;
+    margin-left: 100px;
+}
+
+.techTitleText{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.techTitle{
+    width: 600px;
+    color:  #101828;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 144%; 
+    letter-spacing: 0.326px;
+
+    margin: 0;
+}
+
+.webTech{
+    margin-top: 34px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.mobileTech{
+    margin-top: 32px;
+    margin-bottom: 82px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.technologies h4{
+    width: 496px;
+    color:#101828;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: SFPro;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; 
+    letter-spacing: 0.38px;
+
+    margin: 0;
+}
+
+.webTech p, .mobileTech p{
+    width: 496px;
+    color: #344054;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: SFPro;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; 
+    letter-spacing: -0.408px;
+
+    margin: 0;
+}
+
+.techText{
+    width: 600px;
+    color: #101828;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: SFPro;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; 
+    letter-spacing: -0.24px;
+
+    margin: 0;
+}
+
+.sections{
+    list-style-type: none;
+    margin-top: 80px;
+    margin-left: 108px;
+
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.sections li{
+    display: flex;
+    padding: 12px 0px;
+    align-items: center;
+    gap: 12px;
+
+    color: #1D2939;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: SFPro;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.38px;
+}
+
+.sections img{
+    width: 24px;
+    height: 24px;   
+}
+
+@media screen and (max-width: 1123px){
+    .header{
+        left: 0px;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .menu, .phone {
+        display: none;
+    }    
+
+    .header{
+        top: 16px;
+        left: 0;
+        padding: 25px 32px;
+        max-width: 100vw;
+        width: 100%; 
+        justify-content: space-between;
+    }
+
+    .logo{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .mobileMenu{
+        display: block;
+    }
+
+    .introduction{
+        display: flow-root;
+    }
+
+    .description{
+        margin: 138px 0px 0px 32px;
+        width: 383px;
+    }
+
+    .descTitle{
+        width: 383px;
+        font-size: 28px;
+    }
+
+    .descText{
+        width: 383px;
+    }
+    
+    .userContacts{
+        display: flex;
+        padding: 32px;
+        margin: 32px 0px 32px 33px;
+        width: 382px;
+    }
+
+    .userContTitle{
+        width: 295px;
+        font-size:  16px;
+    }
+
+    .userContForm{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .userContForm input{
+        font-size: 14px;
+    }
+
+    footer{
+        margin: 0;
+        top: 32px;
+        padding: 0;
+        width: 100%;
+        gap: 32px;
+    }
+
+    .footerTitle{
+        margin-top: 46px;
+    }
+
+    .footerContacts{
+        margin-left: 56px;
+    }
+
+    .footerContacts p{
+        width: calc((100vw - 64px)/4);
+        font-size: 14px;
+    }
+
+    .footerSlogan{
+        margin-bottom: 37px;
+    }
+
+    .techTitle{
+        font-size: 28px;
+    }
+
+    .technologies{
+        margin-top: 32px;
+        margin-left: 33px;
+        width: auto;
+    }
+
+    .webTech p, .mobileTech p{
+        font-size: 14px;
+        width: 277px;
+    }
+
+    .webTech h4, .mobileTech h4{
+        width: 277px;
+    }
+
+    .sections{
+        margin-top: 156px;
+        margin-bottom: 35px;
+    }
+
+    .techTitle, .techText{
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .header{
+        top: 20px;
+        padding: 35px 17px;
+    }
+
+    .email{
+        display: none;
+    }
+
+    .mobileMenu{
+        width: 40px;
+        height: 20px;
+    }
+
+    .description{
+        margin-left: 24px;
+    }
+
+    .userContacts{
+        padding: 32px 65px 32px 33px;;
+        margin: 536px 0px 33px 24px;
+        width: 393px;
+    }
+
+    footer{
+        gap: 52px;
+    }
+
+    .footerTitle{
+        font-size: 32px;
+        width: 182px;
+        height: 18px;
+        margin-top: 38px;
+    }
+
+    .footerSlogan{
+        margin-bottom: 32px;
+    }
+
+    .footerContacts{
+        margin-left: 36px;
+        flex-wrap: wrap;
+        gap: 32px
+    }
+
+    .footerContacts p{
+        width: calc((100vw - 82px)/2);
+    }
+
+    .technologies{
+        margin-left: 17px;
+    }
+
+    .mobileTech{
+        margin-bottom: 0;
+    }
+
+    .development{
+        display: block;
+    }
+
+    .sections{
+        margin-left: 17px;
+        margin-top: 32px;
+    }
+
+    .mobileMenulogo{
+        width: 114px;
+        font-size: 20px;
+        margin-top: 98px;
+    }
+        
+    .mobileMenuClose{
+        top: 21px;
+        right: 16px;
+    }
+
+    .mobileMenuMenu{
+        gap: 21px;
+    }
+    
+    .mobileMenuMenu li{
+        font-size: 24px;
+    }
+    
+    .mobileMenuContacts{
+        gap: 16px;
+        font-size: 14px;
+        font-style: normal;
+        flex-direction: column;
+    }
+    
+    .mobileMenuContacts img{
+        width: 24px;
+        height: 24px;
+    }
+}
