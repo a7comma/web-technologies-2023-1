@@ -2,12 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="style.css">
+    <title>ЛР13</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="choiсePizza">
+      <div class ="pizza pizzaActive"> 
+        <img src ="assets/img/Пепперони.png" alt ="icon">
+        <p>Пепперони</p>
+      </div>
+      <div class ="pizza"> 
+        <img src ="assets/img/Маргарита.png" alt ="icon">
+        <p>Маргарита</p>
+      </div>
+      <div class ="pizza"> 
+        <img src ="assets/img/Баварская.png" alt ="icon">
+        <p>Баварская</p>
+      </div>
+    </div>
+
+    <div class="options">
+
+      <div class="sizes">
+        <h3>Выберите размер</h3>
+        <div class="choiceSize">
+          <div class="size sizeActive">Маленькая</div>
+          <div class="size">Большая</div>
+        </div>        
+      </div>
+
+      <div class="toppings">
+        <h3>Добавить по вкусу</h3>
+        <div class="choiceTopping">
+          <div class ="topping">
+            <img src ="assets/img/СырныйБортик.png" alt ="icon">
+            <p>Сырный <br> бортик</p>
+          </div>
+          <div class ="topping"> 
+            <img src ="assets/img/СливочнаяМоцарелла.png" alt ="icon">
+            <p>Сливочная <br> моцарелла</p>
+          </div>
+          <div class ="topping"> 
+            <img src ="assets/img/СырыЧеддерИПармезан.png" alt ="icon">
+            <p>Чеддер и <br> пармезан</p>
+          </div>
+        </div>
+      </div>
+
+      <button>Добавить в корзину за <br><span class="result">900 ₽ (500 кКал)</span></button>
+
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

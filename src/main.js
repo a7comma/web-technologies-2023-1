@@ -1,27 +1,4 @@
 import './assets/styles/style.css'
-import javascriptLogo from './assets/svg/javascript.svg'
-import viteLogo from '../public/vite.svg'
-import { setupCounter } from './components/counter.js'
-
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector('#counter'))
 
 class Pizza{
   constructor(name, price, calories, size){
@@ -133,24 +110,84 @@ class CheddarAndParmesan extends Topping{
   }
 }
 
-let margaret = new MargaretPizza(new BigSize()); 
-margaret.addTopping(new CreamyMozzarella()); 
-margaret.addTopping(new CheeseBoard()); 
-margaret.addTopping(new CheddarAndParmesan());
-margaret.removeTopping(new CheddarAndParmesan());
-console.log(margaret.getToppings());
-console.log(margaret.getStuffing());
-console.log(margaret.getSize());
-console.log(margaret.calculatePrice());
-console.log(margaret.calculateCalories());
+const pizza = document.querySelectorAll(".pizza");
+const size = document.querySelectorAll(".size");
+const toppings = document.querySelectorAll(".topping");
+const result = document.querySelector(".result");
+let pizzaResult;
+let indexPizza = 0;
 
-let pepperoni = new PepperoniPizza(new SmallSize());
-pepperoni.addTopping(new CreamyMozzarella());
-pepperoni.addTopping(new CheeseBoard());
-pepperoni.addTopping(new CheddarAndParmesan());
-pepperoni.removeTopping(new CreamyMozzarella());
-console.log(pepperoni.getToppings());
-console.log(pepperoni.getStuffing());
-console.log(pepperoni.getSize());
-console.log(pepperoni.calculatePrice());
-console.log(pepperoni.calculateCalories());
+
+pizza.forEach((pizza, index) => pizza.addEventListener("click", () => {
+  cancelChoicePizza();
+  choicePizza(index);
+  indexPizza = index;
+}));
+
+size.forEach((size, index) => size.addEventListener("click", () => {
+  cancelChoiceSize();
+  choiceSize(index);
+}));
+
+toppings.forEach((topping, index)=> topping.addEventListener("click", () => {
+  changeTopping(topping, index);
+})); 
+
+function cancelChoicePizza() {
+  pizza.forEach(item => item.classList.remove("pizzaActive"));
+}
+
+function choicePizza(index) {
+  pizza[index].classList.add("pizzaActive");
+  let size = document.querySelector(".sizeActive");
+  if(size.textContent === "Маленькая") 
+    pizzaResult = createPizza(index, new SmallSize());
+  else 
+    pizzaResult = createPizza(index, new BigSize());
+  let toppings = document.querySelectorAll(".toppingActive");
+  addToppings(toppings);
+  changeResult();
+}
+
+function createPizza(index, size) {
+  switch(index)
+  {
+    case 0: return new PepperoniPizza(size);
+    case 1: return new MargaretPizza(size);
+    case 2: return new BavarianPizza(size);
+  }
+}
+
+function addToppings(toppings) {
+  toppings.forEach(t => {
+    if(t.textContent.match("Сырный")?.length > 0) {
+      pizzaResult.addTopping(new CheeseBoard());
+    }
+    if(t.textContent.match("Сливочная")?.length > 0) {
+      pizzaResult.addTopping(new CreamyMozzarella());
+    }
+    if(t.textContent.match("Чеддер")?.length > 0) {
+      pizzaResult.addTopping(new CheddarAndParmesan());
+    }
+  });
+}
+
+function changeResult() {
+  let price = pizzaResult.calculatePrice();
+  let calories = pizzaResult.calculateCalories();
+  result.textContent = `${price} ₽ (${calories} кКал)`
+}
+
+function cancelChoiceSize() {
+  size.forEach(item => item.classList.remove("sizeActive"));
+}
+
+function choiceSize(index) {
+  size[index].classList.add("sizeActive");
+  choicePizza(indexPizza);
+}
+
+function changeTopping(topping, index) {
+  topping.classList.toggle("toppingActive");
+  choicePizza(indexPizza);
+}
