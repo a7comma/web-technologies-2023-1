@@ -1,0 +1,10 @@
+.todos {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.todo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
