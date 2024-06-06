@@ -5,8 +5,8 @@ $h1 = "h1";
 $year = date("Y");
 
 function getTime(){
-    $hours = date("H");
-    $minutes = date("i");
+    $hours = (int)date("H");
+    $minutes = (int)date("i");
 
     $resultTime = $hours;
 
@@ -26,7 +26,7 @@ function getTime(){
         $resultTime .= " минут";
     else if ($divMinutes == 1) 
         $resultTime .= " минута";
-    else $resultTime .= "минуты";
+    else $resultTime .= " минуты";
 
     return $resultTime;
 }
